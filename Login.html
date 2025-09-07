@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    style="
+      background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    "
+  >
+    <nav
+      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] p-4 z-50 shadow-md"
+    >
+      <div class="flex-grow flex justify-center">
+        <a class="text-white mx-2 font-bold" href="Menu.html">Trang chủ</a>
+        <a class="text-white mx-2 font-bold" href="thongtinsp.html"
+          >Thông tin sản phẩm</a
+        >
+        <a class="text-white mx-2 font-bold" href="Menu.html"> Tạo bài đăng </a>
+      </div>
+      <div class="flex-shrink-0">
+        <a class="text-white mx-2 font-bold" href="Login.html">Đăng nhập</a>
+        <a class="text-white mx-2 font-bold" href="Register.html">Đăng Ký</a>
+      </div>
+    </nav>
+
+    <main class="flex items-center justify-center min-h-screen px-4">
+      <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-6">Đăng nhập</h2>
+        <form action="" method="post">
+          <div class="mb-4">
+            <label
+              for="email"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="password"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Mật khẩu</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              type="button"
+              onclick="window.location.href='Menu.html';"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Đăng nhập
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="Register.html"
+            >
+              Chưa có tài khoản? Đăng ký ngay
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
