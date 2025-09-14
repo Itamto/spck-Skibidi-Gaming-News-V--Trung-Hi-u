@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE -html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,33 +6,53 @@
     <title>Trang Tin tức 4</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body
-    class="pt-16"
-    style="
-      background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-    "
-  >
-    <nav
-      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] p-4 z-50 shadow-md"
+  <body class="relative">
+    <div
+      class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
+      style="
+        background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
+      "
     >
-      <div class="flex-grow flex justify-center">
-        <a class="text-white mx-2 font-bold" href="index.html">Trang chủ</a>
-        <a class="text-white mx-2 font-bold" href="thongtinsp.html"
+      <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+
+    <nav
+      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] bg-opacity-80 backdrop-blur-sm p-4 z-50 shadow-md"
+    >
+      <div class="flex-grow flex justify-center space-x-6">
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="index.html"
+          >Trang chủ</a
+        >
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="thongtinsp.html"
           >Thông tin sản phẩm</a
         >
-        <a class="text-white mx-2 font-bold" href="create.html">
-          Tạo bài đăng
-        </a>
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="create.html"
+          >Tạo bài đăng</a
+        >
       </div>
-      <div class="flex-shrink-0">
-        <a class="text-white mx-2 font-bold" href="Login.html">Đăng nhập</a>
-        <a class="text-white mx-2 font-bold" href="Register.html">Đăng Ký</a>
+      <div class="flex-shrink-0 flex items-center space-x-2">
+        <a
+          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          href="Login.html"
+          >Đăng nhập</a
+        >
+        <a
+          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300"
+          href="Register.html"
+          >Đăng Ký</a
+        >
       </div>
     </nav>
 
-    <div class="container mx-auto px-4 mt-8 flex flex-wrap lg:flex-nowrap">
+    <div
+      class="container mx-auto px-4 pt-20 mt-8 flex flex-wrap lg:flex-nowrap"
+    >
       <div class="w-full lg:w-1/2 p-4">
         <div
           class="rounded-md overflow-hidden h-[750px] flex justify-center items-center"
@@ -46,8 +66,10 @@
       </div>
 
       <div class="w-full lg:w-1/2 p-4">
-        <div class="bg-white p-6 rounded-md shadow-md">
-          <h1 class="text-3xl font-bold mb-4">
+        <div
+          class="bg-white p-6 rounded-md shadow-md bg-opacity-80 backdrop-blur-sm"
+        >
+          <h1 class="text-3xl font-bold mb-4 text-black">
             Lucifer: Nữ Vương Kiêu Hãnh Của Địa Ngục Trong Helltaker
           </h1>
           <p class="text-gray-700 leading-relaxed mb-4">
@@ -57,7 +79,9 @@
             và được yêu thích nhất trong trò chơi.
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">Thân phận và vai trò</h2>
+          <h2 class="text-2xl font-bold mb-2 text-black">
+            Thân phận và vai trò
+          </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Lucifer là người cai trị Địa Ngục, một vị trí mà cô nắm giữ với sự
             tự tin và một chút hách dịch. Khi Helltaker quyết định xây dựng một
@@ -67,7 +91,9 @@
             lòng (dù không dễ dàng thừa nhận).
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">Tính cách đặc trưng</h2>
+          <h2 class="text-2xl font-bold mb-2 text-black">
+            Tính cách đặc trưng
+          </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Lucifer mang trong mình sự kiêu ngạo của một người đứng đầu, nhưng
             đồng thời cũng có những khoảnh khắc thể hiện sự bối rối, thậm chí là
@@ -79,7 +105,9 @@
             vật này.
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">Thiết kế và biểu tượng</h2>
+          <h2 class="text-2xl font-bold mb-2 text-black">
+            Thiết kế và biểu tượng
+          </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Vẻ ngoài của Lucifer phản ánh vị thế và tính cách của cô. Mái tóc
             trắng dài, đôi sừng đen cong và đôi mắt đỏ rực tạo nên một hình ảnh
@@ -89,7 +117,9 @@
             cầm trên tay càng làm tăng thêm vẻ quý phái và sang trọng.
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">Mối quan hệ và cốt truyện</h2>
+          <h2 class="text-2xl font-bold mb-2 text-black">
+            Mối quan hệ và cốt truyện
+          </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Mối quan hệ giữa Lucifer và Helltaker là một trong những điểm nhấn
             của trò chơi. Ban đầu là một mục tiêu phải chinh phục, dần dần, giữa
@@ -107,5 +137,19 @@
         </div>
       </div>
     </div>
+    <footer class="bg-[#36454F] py-8 mt-12 text-white">
+      <div
+        class="container mx-auto px-4 flex flex-wrap justify-center items-start"
+      >
+        <div class="w-full text-center">
+          <h3 class="text-xl font-bold mb-2">Liên Hệ</h3>
+          <p class="text-sm">Email: tt########@gmail.com</p>
+          <p class="text-sm">Điện thoại: +84 ### ### ###</p>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-gray-700 text-center text-sm">
+        <p>&copy; 2025 Bò Khô Chả Mực.</p>
+      </div>
+    </footer>
   </body>
 </html>

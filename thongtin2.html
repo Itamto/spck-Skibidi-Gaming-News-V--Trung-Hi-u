@@ -6,33 +6,53 @@
     <title>Trang Tin tức 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body
-    class="pt-16"
-    style="
-      background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-    "
-  >
-    <nav
-      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] p-4 z-50 shadow-md"
+  <body class="relative">
+    <div
+      class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
+      style="
+        background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
+      "
     >
-      <div class="flex-grow flex justify-center">
-        <a class="text-white mx-2 font-bold" href="index.html">Trang chủ</a>
-        <a class="text-white mx-2 font-bold" href="thongtinsp.html"
+      <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+
+    <nav
+      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] bg-opacity-80 backdrop-blur-sm p-4 z-50 shadow-md"
+    >
+      <div class="flex-grow flex justify-center space-x-6">
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="index.html"
+          >Trang chủ</a
+        >
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="thongtinsp.html"
           >Thông tin sản phẩm</a
         >
-        <a class="text-white mx-2 font-bold" href="create.html">
-          Tạo bài đăng
-        </a>
+        <a
+          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          href="create.html"
+          >Tạo bài đăng</a
+        >
       </div>
-      <div class="flex-shrink-0">
-        <a class="text-white mx-2 font-bold" href="Login.html">Đăng nhập</a>
-        <a class="text-white mx-2 font-bold" href="Register.html">Đăng Ký</a>
+      <div class="flex-shrink-0 flex items-center space-x-2">
+        <a
+          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          href="Login.html"
+          >Đăng nhập</a
+        >
+        <a
+          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300"
+          href="Register.html"
+          >Đăng Ký</a
+        >
       </div>
     </nav>
 
-    <div class="container mx-auto px-4 mt-8 flex flex-wrap lg:flex-nowrap">
+    <div
+      class="container mx-auto px-4 pt-20 mt-8 flex flex-wrap lg:flex-nowrap"
+    >
       <div class="w-full lg:w-1/2 p-4">
         <div
           class="rounded-md overflow-hidden h-[700px] flex justify-center items-center"
@@ -46,8 +66,10 @@
       </div>
 
       <div class="w-full lg:w-1/2 p-4">
-        <div class="bg-white p-6 rounded-md shadow-md">
-          <h1 class="text-3xl font-bold mb-4">
+        <div
+          class="bg-white p-6 rounded-md shadow-md bg-opacity-80 backdrop-blur-sm"
+        >
+          <h1 class="text-3xl font-bold mb-4 text-black">
             Evernight: Tấm màn bí ẩn về quá khứ của March 7th
           </h1>
           <p class="text-gray-700 leading-relaxed mb-4">
@@ -56,7 +78,7 @@
             phận thật sự của March 7th sau khi cô lấy lại ký ức.
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">
+          <h2 class="text-2xl font-bold mb-2 text-black">
             Từ March 7th vui vẻ đến Evernight bí ẩn
           </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
@@ -74,7 +96,7 @@
             với March 7th chúng ta từng biết.
           </p>
 
-          <h2 class="text-2xl font-bold mb-2">
+          <h2 class="text-2xl font-bold mb-2 text-black">
             Danh tính và vai trò của Evernight
           </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
@@ -106,7 +128,9 @@
             </li>
           </ul>
 
-          <h2 class="text-2xl font-bold mb-2">Sức mạnh và biểu tượng</h2>
+          <h2 class="text-2xl font-bold mb-2 text-black">
+            Sức mạnh và biểu tượng
+          </h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Là một nhân vật thuộc tính Băng và Vận mệnh Ký Ức, Evernight chiến
             đấu bằng cách triệu hồi những memosprites (linh hồn ký ức) giống như
@@ -123,5 +147,19 @@
         </div>
       </div>
     </div>
+    <footer class="bg-[#36454F] py-8 mt-12 text-white">
+      <div
+        class="container mx-auto px-4 flex flex-wrap justify-center items-start"
+      >
+        <div class="w-full text-center">
+          <h3 class="text-xl font-bold mb-2">Liên Hệ</h3>
+          <p class="text-sm">Email: tt########@gmail.com</p>
+          <p class="text-sm">Điện thoại: +84 ### ### ###</p>
+        </div>
+      </div>
+      <div class="mt-8 pt-4 border-t border-gray-700 text-center text-sm">
+        <p>&copy; 2025 Bò Khô Chả Mực.</p>
+      </div>
+    </footer>
   </body>
 </html>
