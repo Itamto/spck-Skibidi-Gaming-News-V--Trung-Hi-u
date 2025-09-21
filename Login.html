@@ -5,8 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+    <style>
+      .loading-overlay {
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      }
+      .animate-pulse-200 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.2s;
+      }
+      .animate-pulse-400 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.4s;
+      }
+      .animate-pulse-600 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.6s;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.75);
+        }
+      }
+    </style>
   </head>
   <body class="relative">
+    <div
+      id="loading-overlay"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay"
+    >
+      <div class="flex space-x-2">
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-200"></div>
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-400"></div>
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-600"></div>
+      </div>
+    </div>
+
     <div
       class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
       style="
@@ -21,29 +61,29 @@
     >
       <div class="flex-grow flex justify-center space-x-6">
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="index.html"
           >Trang chủ</a
         >
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="thongtinsp.html"
           >Thông tin sản phẩm</a
         >
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="create.html"
           >Tạo bài đăng</a
         >
       </div>
       <div class="flex-shrink-0 flex items-center space-x-2">
         <a
-          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:scale-95 transition-all duration-300"
           href="Login.html"
           >Đăng nhập</a
         >
         <a
-          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300"
+          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 active:scale-95 transition-all duration-300"
           href="Register.html"
           >Đăng Ký</a
         >
@@ -51,7 +91,12 @@
     </nav>
 
     <main class="flex items-center justify-center min-h-screen px-4">
-      <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+      <div
+        class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-sm"
+      >
+        <div class="text-center mb-4">
+          <i class="fa-regular fa-circle-user text-5xl text-gray-700"></i>
+        </div>
         <h2 class="text-2xl font-bold text-center mb-6">Đăng nhập</h2>
         <form action="" method="post">
           <div class="mb-4">
@@ -86,12 +131,12 @@
             <button
               type="button"
               onclick="window.location.href='index.html';"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-300 focus:outline-none focus:shadow-outline"
             >
               Đăng nhập
             </button>
             <a
-              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 active:scale-95 transition-all duration-300"
               href="Register.html"
             >
               Chưa có tài khoản? Đăng ký ngay
@@ -114,5 +159,24 @@
         <p>&copy; 2025 Bò Khô Chả Mực.</p>
       </div>
     </footer>
+
+    <script>
+      function showLoading(event) {
+        event.preventDefault();
+        const overlay = document.getElementById("loading-overlay");
+        overlay.classList.remove("opacity-0", "invisible");
+        overlay.classList.add("opacity-100", "visible");
+
+        setTimeout(() => {
+          window.location.href = event.target.closest("a, button").href;
+        }, 500);
+      }
+
+      document.querySelectorAll("a, button").forEach((element) => {
+        if (element.href && element.href.includes(".html")) {
+          element.addEventListener("click", showLoading);
+        }
+      });
+    </script>
   </body>
 </html>

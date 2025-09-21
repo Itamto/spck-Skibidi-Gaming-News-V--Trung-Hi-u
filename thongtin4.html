@@ -1,12 +1,51 @@
-<!DOCTYPE -html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang Tin tức 4</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .loading-overlay {
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      }
+      .animate-pulse-200 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.2s;
+      }
+      .animate-pulse-400 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.4s;
+      }
+      .animate-pulse-600 {
+        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        animation-delay: -0.6s;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.75);
+        }
+      }
+    </style>
   </head>
   <body class="relative">
+    <div
+      id="loading-overlay"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay"
+    >
+      <div class="flex space-x-2">
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-200"></div>
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-400"></div>
+        <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-600"></div>
+      </div>
+    </div>
+
     <div
       class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
       style="
@@ -21,29 +60,29 @@
     >
       <div class="flex-grow flex justify-center space-x-6">
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="index.html"
           >Trang chủ</a
         >
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="thongtinsp.html"
           >Thông tin sản phẩm</a
         >
         <a
-          class="text-white mx-2 font-bold hover:text-blue-300 transition-colors duration-300"
+          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
           href="create.html"
           >Tạo bài đăng</a
         >
       </div>
       <div class="flex-shrink-0 flex items-center space-x-2">
         <a
-          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:scale-95 transition-all duration-300"
           href="Login.html"
           >Đăng nhập</a
         >
         <a
-          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300"
+          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 active:scale-95 transition-all duration-300"
           href="Register.html"
           >Đăng Ký</a
         >
@@ -55,7 +94,7 @@
     >
       <div class="w-full lg:w-1/2 p-4">
         <div
-          class="rounded-md overflow-hidden h-[750px] flex justify-center items-center"
+          class="rounded-lg overflow-hidden h-[750px] flex justify-center items-center"
         >
           <img
             src="lucifer helltaker.jpg"
@@ -67,7 +106,7 @@
 
       <div class="w-full lg:w-1/2 p-4">
         <div
-          class="bg-white p-6 rounded-md shadow-md bg-opacity-80 backdrop-blur-sm"
+          class="bg-white p-6 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-sm"
         >
           <h1 class="text-3xl font-bold mb-4 text-black">
             Lucifer: Nữ Vương Kiêu Hãnh Của Địa Ngục Trong Helltaker
@@ -151,5 +190,24 @@
         <p>&copy; 2025 Bò Khô Chả Mực.</p>
       </div>
     </footer>
+
+    <script>
+      function showLoading(event) {
+        event.preventDefault();
+        const overlay = document.getElementById("loading-overlay");
+        overlay.classList.remove("opacity-0", "invisible");
+        overlay.classList.add("opacity-100", "visible");
+
+        setTimeout(() => {
+          window.location.href = event.target.closest("a, button").href;
+        }, 500);
+      }
+
+      document.querySelectorAll("a, button").forEach((element) => {
+        if (element.href && element.href.includes(".html")) {
+          element.addEventListener("click", showLoading);
+        }
+      });
+    </script>
   </body>
 </html>
