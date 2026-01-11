@@ -1,44 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang Tin tức</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-      .loading-overlay {
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      html{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+      body{font-family: inherit;}
+      h1,h2,h3,.logo{font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+      .loading-overlay { transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; }
+      @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.75); } }
+      .animate-pulse-200 { animation: pulse-dot 1s infinite -0.2s; }
+      .animate-pulse-400 { animation: pulse-dot 1s infinite -0.4s; }
+      .animate-pulse-600 { animation: pulse-dot 1s infinite -0.6s; }
+      
+      /* Ẩn thanh cuộn cho Slider */
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      /* UI helpers */
+      .btn-primary{
+        background-image: linear-gradient(to right,#34d399,#3b82f6);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 20px rgba(2,6,23,0.12);
+        display: inline-block;
+        text-align: center;
+        transition: opacity .18s ease, transform .18s ease;
       }
-      .animate-pulse-200 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.2s;
-      }
-      .animate-pulse-400 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.4s;
-      }
-      .animate-pulse-600 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.6s;
-      }
-      @keyframes pulse-dot {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.5;
-          transform: scale(0.75);
-        }
-      }
+      .btn-primary:hover{ opacity:.95; transform: translateY(-1px); }
+      .card { background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); }
+      .mobile-menu-enter { transform: translateY(-6px); opacity: 0; }
+      .mobile-menu-enter-active { transform: translateY(0); opacity: 1; transition: all 200ms ease; }
     </style>
   </head>
   <body class="relative">
-    <div
-      id="loading-overlay"
-      class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay"
-    >
+    <div id="loading-overlay" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay">
       <div class="flex space-x-2">
         <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-200"></div>
         <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-400"></div>
@@ -46,210 +47,176 @@
       </div>
     </div>
 
-    <div
-      class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
-      style="
-        background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
-      "
-    >
+    <div class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center" style="background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');">
       <div class="absolute inset-0 bg-black opacity-60"></div>
     </div>
 
-    <nav
-      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] bg-opacity-80 backdrop-blur-sm p-4 z-50 shadow-md"
-    >
-      <div class="flex-grow flex justify-center space-x-6">
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="index.html"
-          >Trang chủ</a
-        >
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="thongtinsp.html"
-          >Thông tin sản phẩm</a
-        >
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="create.html"
-          >Tạo bài đăng</a
-        >
+    <nav class="fixed top-0 w-full bg-[#0b1220] bg-opacity-60 backdrop-blur-sm p-4 z-50 shadow-lg">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="logo text-white font-extrabold text-lg">Hyper<span class="text-blue-400">News</span></div>
+          <div class="hidden md:flex items-center space-x-6">
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="index.html">Trang chủ</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="thongtinsp.html">Thông tin sản phẩm</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="create.html">Tạo bài đăng</a>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-3">
+          <a class="hidden md:inline-block bg-transparent text-blue-400 border border-blue-400 px-3 py-1.5 rounded-lg hover:bg-blue-400/20 transition" href="Login.html">Đăng nhập</a>
+          <a class="btn-primary" href="Register.html">Đăng ký</a>
+        </div>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="Mở menu" class="text-gray-200 p-2 rounded-md bg-white/5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="flex-shrink-0 flex items-center space-x-2">
-        <a
-          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:scale-95 transition-all duration-300"
-          href="Login.html"
-          >Đăng nhập</a
-        >
-        <a
-          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 active:scale-95 transition-all duration-300"
-          href="Register.html"
-          >Đăng Ký</a
-        >
+
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <div class="flex flex-col gap-2 mt-2">
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="index.html">Trang chủ</a>
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="thongtinsp.html">Thông tin sản phẩm</a>
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="create.html">Tạo bài đăng</a>
+          <a class="block text-blue-300 py-2 px-3 rounded hover:bg-white/5" href="Login.html">Đăng nhập</a>
+          <a class="block btn-primary text-center" href="Register.html">Đăng ký</a>
+        </div>
       </div>
     </nav>
 
-    <div class="container mx-auto px-4 pt-20 mt-4">
-      <h1
-        class="text-white underline text-3xl font-extrabold mb-4 drop-shadow-lg"
-      >
-        TIN TỨC NỔI BẬT
-      </h1>
-      <div class="flex flex-wrap -mx-4">
-        <div class="w-full sm:w-1/2 md:w-1/3 px-4 mb-4">
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full bg-opacity-80 backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-300"
-          >
-            <div class="relative h-48 overflow-hidden flex justify-center">
-              <img
-                src="Cerydra.jpg"
-                alt="Cerydra"
-                class="block object-contain"
-              />
-            </div>
-            <div
-              class="card body text-center p-4 flex-grow flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-black">
-                  Cerydra & Furina
-                </h3>
-                <p class="text-gray-700">
-                  Biểu Tượng Của Tình Yêu Thần Thánh và Sự Hy Sinh
-                </p>
-              </div>
-              <button
-                onclick="window.location.href='thongtin1.html';"
-                class="bg-blue-400 text-white font-bold py-2 px-4 rounded-lg mt-4"
-              >
-                xem chi tiết
-              </button>
+    <header class="pt-24">
+      <div class="max-w-6xl mx-auto px-4">
+        <section class="rounded-xl overflow-hidden relative bg-cover bg-center shadow-2xl" style="background-image: linear-gradient(120deg, rgba(2,6,23,0.55), rgba(10,25,40,0.35)), url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');">
+          <div class="px-6 py-24 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg tracking-tight">HYPER GAMING NEWS</h1>
+            <p class="mt-4 text-gray-200 max-w-2xl mx-auto text-lg">Cập nhật tin tức mới và hấp dẫn về Genshin Impact, Star Rail và ZZZ.</p>
+            <div class="mt-6 flex justify-center gap-3">
+              <a href="#news" class="bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg shadow">Xem tin mới</a>
+              <a href="create.html" class="border border-white text-white px-6 py-3 rounded-lg hover:bg-white/10 transition">Tạo bài ngay</a>
             </div>
           </div>
-        </div>
-
-        <div class="w-full sm:w-1/2 md:w-1/3 px-4 mb-4">
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full bg-opacity-80 backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-300"
-          >
-            <div class="relative h-48 overflow-hidden flex justify-center">
-              <img
-                src="evernight.jpg"
-                alt="Evernight"
-                class="block object-contain"
-              />
-            </div>
-            <div
-              class="card body text-center p-4 flex-grow flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-black">Evernight</h3>
-                <p class="text-gray-700">
-                  Tấm màn bí ẩn về quá khứ của March 7th
-                </p>
-              </div>
-              <button
-                onclick="window.location.href='thongtin2.html';"
-                class="bg-blue-400 text-white font-bold py-2 px-4 rounded-lg mt-4"
-              >
-                xem chi tiết
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-full sm:w-1/2 md:w-1/3 px-4 mb-4">
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full bg-opacity-80 backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-300"
-          >
-            <div class="relative h-48 overflow-hidden flex justify-center">
-              <img
-                src="Jane Doe.jpg"
-                alt="Jane Doe"
-                class="block object-contain"
-              />
-            </div>
-            <div
-              class="card body text-center p-4 flex-grow flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-black">Jane Doe</h3>
-                <p class="text-gray-700">Đặc Vụ Bóng Tối Của New Eridu</p>
-              </div>
-              <button
-                onclick="window.location.href='thongtin3.html';"
-                class="bg-blue-400 text-white font-bold py-2 px-4 rounded-lg mt-4"
-              >
-                xem chi tiết
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-full sm:w-1/2 md:w-1/3 px-4 mb-4">
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full bg-opacity-80 backdrop-blur-sm hover:scale-105 active:scale-95 transition-all duration-300"
-          >
-            <div class="relative h-48 overflow-hidden flex justify-center">
-              <img
-                src="Mittsies.png"
-                alt="Lucifer"
-                class="block object-contain"
-              />
-            </div>
-            <div
-              class="card body text-center p-4 flex-grow flex flex-col justify-between"
-            >
-              <div>
-                <h3 class="text-xl font-semibold text-black">Lucifer</h3>
-                <p class="text-gray-700">
-                  Nữ Vương Kiêu Hãnh Của Địa Ngục Trong Helltaker
-                </p>
-              </div>
-              <button
-                onclick="window.location.href='thongtin4.html';"
-                class="bg-blue-400 text-white font-bold py-2 px-4 rounded-lg mt-4"
-              >
-                xem chi tiết
-              </button>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
-    </div>
 
-    <footer class="bg-[#36454F] py-8 mt-12 text-white">
-      <div
-        class="container mx-auto px-4 flex flex-wrap justify-center items-start"
-      >
-        <div class="w-full text-center">
-          <h3 class="text-xl font-bold mb-2">Liên Hệ</h3>
-          <p class="text-sm">Email: tt########@gmail.com</p>
-          <p class="text-sm">Điện thoại: +84 ### ### ###</p>
+      <div id="news" class="max-w-6xl mx-auto px-4 mt-10">
+        <h2 class="text-white text-2xl font-bold mb-6">Bài viết từ cộng đồng</h2>
+        <div id="dynamic-posts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"></div>
+
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-white text-2xl font-bold">Tin tức cố định</h2>
+            <div class="flex gap-2">
+                <button onclick="document.getElementById('fixed-slider').scrollBy({left: -350, behavior: 'smooth'})" class="bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button onclick="document.getElementById('fixed-slider').scrollBy({left: 350, behavior: 'smooth'})" class="bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+            </div>
         </div>
+
+        <div id="fixed-slider" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide">
+          
+          <div class="min-w-[85%] sm:min-w-[45%] md:min-w-[31%] snap-start">
+            <div class="card rounded-lg shadow-lg overflow-hidden h-full transition-transform hover:scale-[1.02]">
+              <img src="Cerydra.jpg" class="w-full h-48 object-cover" loading="lazy">
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-bold text-black">Cerydra & Furina</h3>
+                <p class="text-gray-700 text-sm mt-2">Biểu Tượng Của Tình Yêu Thần Thánh</p>
+                <button onclick="window.location.href='thongtin1.html';" class="bg-blue-400 text-white w-full py-2 rounded-lg mt-4 hover:bg-blue-500 transition">Xem chi tiết</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-[85%] sm:min-w-[45%] md:min-w-[31%] snap-start">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full bg-opacity-80 backdrop-blur-sm transition hover:scale-[1.02]">
+              <img src="evernight.jpg" class="w-full h-48 object-cover">
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-bold text-black">Evernight</h3>
+                <p class="text-gray-700 text-sm mt-2">Quá khứ bí ẩn của March 7th</p>
+                <button onclick="window.location.href='thongtin2.html';" class="bg-blue-400 text-white w-full py-2 rounded-lg mt-4 hover:bg-blue-500 transition">Xem chi tiết</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-[85%] sm:min-w-[45%] md:min-w-[31%] snap-start">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full bg-opacity-80 backdrop-blur-sm transition hover:scale-[1.02]">
+              <img src="Jane Doe.jpg" class="w-full h-48 object-cover">
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-bold text-black">Jane Doe</h3>
+                <p class="text-gray-700 text-sm mt-2">Đặc vụ bóng tối của New Eridu</p>
+                <button onclick="window.location.href='thongtin3.html';" class="bg-blue-400 text-white w-full py-2 rounded-lg mt-4 hover:bg-blue-500 transition">Xem chi tiết</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-[85%] sm:min-w-[45%] md:min-w-[31%] snap-start">
+            <div class="card rounded-lg shadow-lg overflow-hidden h-full transition-transform hover:scale-[1.02]">
+              <div class="relative h-48 overflow-hidden flex justify-center bg-gray-100">
+                <img src="Mittsies.png" alt="Lucifer" class="block object-contain h-full" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Lucifer'">
+              </div>
+              <div class="p-4 text-center flex flex-col justify-between h-[180px]">
+                <div>
+                  <h3 class="text-xl font-bold text-black">Lucifer</h3>
+                  <p class="text-gray-700 text-sm mt-2">Nữ Vương Kiêu Hãnh Của Địa Ngục Trong Helltaker</p>
+                </div>
+                <button onclick="window.location.href='thongtin4.html';" class="bg-blue-400 text-white font-bold py-2 px-4 rounded-lg mt-4 w-full hover:bg-blue-500 transition">Xem chi tiết</button>
+              </div>
+            </div>
+          </div>
+
+          </div>
       </div>
-      <div class="mt-8 pt-4 border-t border-gray-700 text-center text-sm">
-        <p>&copy; 2025 Bò Khô Chả Mực.</p>
+    </header>
+
+    <footer class="bg-[#0b1220]/80 py-8 text-white border-t border-white/5 backdrop-blur-sm">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-lg font-bold mb-1">Liên Hệ</h3>
+        <p class="text-xs opacity-70">Email: t########@gmail.com | Hotline: +84 ### ### ###</p>
+        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] opacity-40 uppercase tracking-widest">
+          <p>&copy; 2025 Bò Khô Chả Mực.</p>
+        </div>
       </div>
     </footer>
 
+    <script src="app.js"></script>
     <script>
       function showLoading(event) {
+        if (event.button && event.button !== 0) return;
+        const link = event.target.closest("a, button");
+        if (!link) return;
+        const rawHref = link.getAttribute && link.getAttribute('href');
+        if (rawHref && rawHref.startsWith('#')) return;
+        if (!link.href) return;
         event.preventDefault();
         const overlay = document.getElementById("loading-overlay");
         overlay.classList.remove("opacity-0", "invisible");
         overlay.classList.add("opacity-100", "visible");
-
-        setTimeout(() => {
-          window.location.href = event.target.closest("a, button").href;
-        }, 500);
+        setTimeout(() => { window.location.href = link.href; }, 350);
       }
-
       document.querySelectorAll("a, button").forEach((element) => {
-        if (element.href && element.href.includes(".html")) {
-          element.addEventListener("click", showLoading);
-        }
+        try {
+          const raw = element.getAttribute && element.getAttribute('href');
+          if (raw && raw.includes('.html')) element.addEventListener("click", showLoading);
+        } catch (e) {}
       });
+    </script>
+    <script>
+      (function(){
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn?.addEventListener('click', ()=>{
+          if(!menu) return;
+          menu.classList.toggle('hidden');
+          menu.classList.add('mobile-menu-enter-active');
+          setTimeout(()=> menu.classList.remove('mobile-menu-enter-active'), 250);
+        });
+
+        window.addEventListener('load', ()=>{
+          const overlay = document.getElementById('loading-overlay');
+          if(overlay){ overlay.classList.add('opacity-0'); overlay.classList.add('invisible'); }
+        });
+      })();
     </script>
   </body>
 </html>

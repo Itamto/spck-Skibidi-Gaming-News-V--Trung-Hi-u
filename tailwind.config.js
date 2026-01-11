@@ -5,3 +5,11 @@ module.exports = {
   },
   plugins: [],
 };
+
+module.exports = {
+  content: ["./*html"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};

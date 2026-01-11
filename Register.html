@@ -1,45 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng Ký</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
     <style>
-      .loading-overlay {
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      html { font-family: 'Inter', sans-serif; }
+      body { font-family: inherit; background-color: transparent !important; }
+      h1,h2,h3,.logo { font-family: 'Poppins', sans-serif; }
+      
+      .loading-overlay { transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; }
+      @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.75); } }
+      .animate-pulse-200 { animation: pulse-dot 1s infinite -0.2s; }
+      .animate-pulse-400 { animation: pulse-dot 1s infinite -0.4s; }
+      .animate-pulse-600 { animation: pulse-dot 1s infinite -0.6s; }
+
+      /* Đảm bảo hình nền luôn phủ kín và không bị mất */
+      .bg-star-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
       }
-      .animate-pulse-200 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.2s;
-      }
-      .animate-pulse-400 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.4s;
-      }
-      .animate-pulse-600 {
-        animation: pulse-dot 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        animation-delay: -0.6s;
-      }
-      @keyframes pulse-dot {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.5;
-          transform: scale(0.75);
-        }
+      .bg-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
       }
     </style>
   </head>
-  <body class="relative">
-    <div
-      id="loading-overlay"
-      class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay"
-    >
+  <body class="relative min-h-screen">
+    
+    <div class="bg-star-fixed">
+      <div class="bg-overlay"></div>
+    </div>
+
+    <div id="loading-overlay" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#36454F] opacity-0 invisible loading-overlay">
       <div class="flex space-x-2">
         <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-200"></div>
         <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse-400"></div>
@@ -47,126 +55,51 @@
       </div>
     </div>
 
-    <div
-      class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center"
-      style="
-        background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');
-      "
-    >
-      <div class="absolute inset-0 bg-black opacity-60"></div>
-    </div>
-
-    <nav
-      class="flex justify-between items-center fixed top-0 w-full bg-[#36454F] bg-opacity-80 backdrop-blur-sm p-4 z-50 shadow-md"
-    >
-      <div class="flex-grow flex justify-center space-x-6">
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="index.html"
-          >Trang chủ</a
-        >
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="thongtinsp.html"
-          >Thông tin sản phẩm</a
-        >
-        <a
-          class="text-white mx-2 font-bold hover:text-blue-300 active:scale-95 transition-all duration-300"
-          href="create.html"
-          >Tạo bài đăng</a
-        >
-      </div>
-      <div class="flex-shrink-0 flex items-center space-x-2">
-        <a
-          class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 active:scale-95 transition-all duration-300"
-          href="Login.html"
-          >Đăng nhập</a
-        >
-        <a
-          class="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 active:scale-95 transition-all duration-300"
-          href="Register.html"
-          >Đăng Ký</a
-        >
+    <nav class="fixed top-0 w-full bg-[#0b1220] bg-opacity-60 backdrop-blur-sm p-4 z-50 shadow-lg">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="logo text-white font-extrabold text-lg">Hyper<span class="text-blue-400">News</span></div>
+          <div class="hidden md:flex items-center space-x-6">
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="index.html">Trang chủ</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="thongtinsp.html">Thông tin sản phẩm</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="create.html">Tạo bài đăng</a>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-3">
+          <a class="hidden md:inline-block bg-transparent text-blue-400 border border-blue-400 px-3 py-1.5 rounded-lg hover:bg-blue-400/20 transition" href="Login.html">Đăng nhập</a>
+          <a class="btn-primary" href="Register.html">Đăng ký</a>
+        </div>
       </div>
     </nav>
 
-    <main class="flex items-center justify-center min-h-screen px-4 pt-16">
-      <div
-        class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-sm"
-      >
+    <main class="flex items-center justify-center min-h-screen px-4 py-24">
+      <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg bg-opacity-95 mt-12 mb-12 relative z-10">
         <div class="text-center mb-4">
           <i class="fa-regular fa-circle-user text-5xl text-gray-700"></i>
         </div>
-        <h2 class="text-2xl font-bold text-center mb-6">Đăng Ký</h2>
+        <h2 class="text-2xl font-bold text-center mb-6 text-gray-900">Đăng Ký</h2>
         <form action="" method="post">
           <div class="mb-6">
-            <label
-              for="username"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Tên người dùng</label
-            >
-            <input
-              type="text"
-              id="username"
-              name="username"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
+            <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Tên người dùng</label>
+            <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
           </div>
           <div class="mb-6">
-            <label
-              for="email"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
           </div>
           <div class="mb-8">
-            <label
-              for="password"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Mật khẩu</label
-            >
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
+            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Mật khẩu</label>
+            <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
           </div>
           <div class="mb-8">
-            <label
-              for="confirm_password"
-              class="block text-gray-700 text-sm font-bold mb-2"
-              >Mật khẩu xác nhận</label
-            >
-            <input
-              type="password"
-              id="confirm_password"
-              name="confirm_password"
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
+            <label for="confirm_password" class="block text-gray-700 text-sm font-bold mb-2">Mật khẩu xác nhận</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
           </div>
           <div class="flex items-center justify-between">
-            <button
-              type="button"
-              onclick="window.location.href='index.html'"
-              class="bg-blue-500 hover:bg-blue-700 active:scale-95 transition-all duration-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
+            <button type="button" onclick="window.location.href='index.html'" class="bg-blue-500 hover:bg-blue-700 active:scale-95 transition-all duration-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Đăng Ký
             </button>
-            <a
-              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 active:scale-95 transition-all duration-300"
-              href="Login.html"
-            >
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 active:scale-95 transition-all duration-300" href="Login.html">
               Đã có tài khoản? Đăng nhập
             </a>
           </div>
@@ -174,38 +107,36 @@
       </div>
     </main>
 
-    <footer class="bg-[#36454F] py-8 mt-12 text-white">
-      <div
-        class="container mx-auto px-4 flex flex-wrap justify-center items-start"
-      >
-        <div class="w-full text-center">
-          <h3 class="text-xl font-bold mb-2">Liên Hệ</h3>
-          <p class="text-sm">Email: t########@gmail.com</p>
-          <p class="text-sm">Điện thoại: +84 ### ### ###</p>
+    <footer class="bg-[#0b1220]/80 py-8 text-white border-t border-white/5 backdrop-blur-sm">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-lg font-bold mb-1">Liên Hệ</h3>
+        <p class="text-xs opacity-70">Email: t########@gmail.com | Hotline: +84 ### ### ###</p>
+        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] opacity-40 uppercase tracking-widest">
+          <p>&copy; 2025 Bò Khô Chả Mực.</p>
         </div>
-      </div>
-      <div class="mt-8 pt-4 border-t border-gray-700 text-center text-sm">
-        <p>&copy; 2025 Bò Khô Chả Mực.</p>
       </div>
     </footer>
 
     <script>
       function showLoading(event) {
+        if (event.button && event.button !== 0) return;
+        const link = event.target.closest("a, button");
+        if (!link) return;
+        const rawHref = link.getAttribute && link.getAttribute('href');
+        if (rawHref && rawHref.startsWith('#')) return;
+        if (!link.href && link.type !== 'button') return;
+        
         event.preventDefault();
+        const targetHref = link.href || 'index.html'; 
         const overlay = document.getElementById("loading-overlay");
         overlay.classList.remove("opacity-0", "invisible");
         overlay.classList.add("opacity-100", "visible");
-
-        setTimeout(() => {
-          window.location.href = event.target.closest("a, button").href;
-        }, 500);
+        setTimeout(() => { window.location.href = targetHref; }, 350);
       }
-
       document.querySelectorAll("a, button").forEach((element) => {
-        if (element.href && element.href.includes(".html")) {
           element.addEventListener("click", showLoading);
-        }
       });
     </script>
+    <script src="assets/site.js"></script>
   </body>
 </html>

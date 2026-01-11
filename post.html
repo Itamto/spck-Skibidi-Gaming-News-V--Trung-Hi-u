@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Bài Đăng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      html{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+      body{font-family: inherit;}
+      h1,h2,h3,.logo{font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white relative">
+    <div class="fixed inset-0 z-[-1] bg-cover bg-no-repeat bg-center" style="background-image: url('ai-la-nguoi-dam-me-nhung-bau-troi-dem-day-sao-dep-den-nao-long-nao.jpg');">
+      <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+    <nav class="fixed top-0 w-full bg-[#0b1220] bg-opacity-60 backdrop-blur-sm p-4 z-50 shadow-lg">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="logo text-white font-extrabold text-lg">Hyper<span class="text-blue-400">News</span></div>
+          <div class="hidden md:flex items-center space-x-6">
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="index.html">Trang chủ</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="thongtinsp.html">Thông tin sản phẩm</a>
+            <a class="text-gray-200 hover:text-white font-semibold transition" href="create.html">Tạo bài đăng</a>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-3">
+          <a class="hidden md:inline-block bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition" href="Login.html">Đăng nhập</a>
+          <a class="btn-primary" href="Register.html">Đăng ký</a>
+        </div>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="Mở menu" class="text-gray-200 p-2 rounded-md bg-white/5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <div class="flex flex-col gap-2 mt-2">
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="index.html">Trang chủ</a>
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="thongtinsp.html">Thông tin sản phẩm</a>
+          <a class="block text-gray-200 py-2 px-3 rounded hover:bg-white/5" href="create.html">Tạo bài đăng</a>
+          <a class="block text-blue-300 py-2 px-3 rounded hover:bg-white/5" href="Login.html">Đăng nhập</a>
+          <a class="block btn-primary text-center" href="Register.html">Đăng ký</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto p-6">
+      <div id="postContainer" class="bg-white text-gray-900 rounded-lg shadow-lg overflow-hidden">
+        <div class="p-8 text-center">Đang tải bài...</div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="assets/site.js"></script>
+  </body> 
+</html>

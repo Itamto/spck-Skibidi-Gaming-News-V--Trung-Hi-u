@@ -1,0 +1,21 @@
+/* Dùng chung cho các trang: các helper CSS */
+:root{--bg-gradient-from:#34d399;--bg-gradient-to:#3b82f6}
+html,body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:#071025;color:#e6eef8}
+.btn-primary{background-image:linear-gradient(to right,var(--bg-gradient-from),var(--bg-gradient-to));color:#fff;padding:.5rem 1rem;border-radius:.5rem;box-shadow:0 6px 20px rgba(2,6,23,.12);display:inline-block;text-align:center;transition:opacity .18s ease,transform .18s ease}
+.btn-primary:hover{opacity:.95;transform:translateY(-1px)}
+.card{background:rgba(255,255,255,.85);backdrop-filter:blur(6px)}
+.loading-overlay{transition:opacity .5s ease,visibility .5s ease}
+.mobile-menu-enter{transform:translateY(-6px);opacity:0}
+.mobile-menu-enter-active{transform:translateY(0);opacity:1;transition:all .2s ease}
+/* Utility to hide scrollbar for slider */
+.scrollbar-hide::-webkit-scrollbar{display:none}
+.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}
+/* Responsive container */
+.container-max{max-width:1100px;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+/* Simple header/nav styles for pages without Tailwind build */
+.site-nav{position:fixed;top:0;left:0;right:0;background:rgba(11,18,32,.6);backdrop-filter:blur(6px);padding:0.75rem 0;z-index:50}
+.site-nav .brand{font-weight:800;color:#fff}
+.site-nav a{color:#dbeafe;text-decoration:none;margin:0 .5rem}
+.site-hero{padding-top:5.5rem}
+/* Footer small */
+.site-footer{background:#36454F;color:#fff;padding:2rem 0;margin-top:2rem;text-align:center}
